@@ -4,6 +4,7 @@ author: "David Hale"
 date: "4/19/2021"
 output: 
   html_document: 
+    fig_caption: yes
     keep_md: yes
 ---
 
@@ -203,4 +204,4 @@ impute.data2%>%
 qplot(interval, avg.steps, data = intervaldata2, geom = "line", facets = .~day)
 ```
 
-![](PA1_template_files/figure-html/unnamed-chunk-8-1.png)<!-- -->
+<img src="PA1_template_files/figure-html/unnamed-chunk-8-1.png" width="100%" />
