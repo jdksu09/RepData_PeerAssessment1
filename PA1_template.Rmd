@@ -4,14 +4,13 @@ author: "David Hale"
 date: "4/19/2021"
 output: 
   html_document: 
-    fig_caption: yes
     keep_md: yes
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
-knitr::opts_chunk$set(fig_path = "./figures/")
 ```
+
 
 ## Intro
 
@@ -42,7 +41,7 @@ library(dplyr)
 data%>%
   group_by(date) %>%
   summarize(total.steps = sum(steps)) -> sumdata
-hist(sumdata$total.steps,xlab="Total steps per day",main="Histogram of Total Steps Per Day")
+hist(sumdata$total.steps, xlab = "Total steps per day", main = "Histogram of Total Steps Per Day")
 ```
 
 Next, we'll figure the mean and median total steps taken per day.  Missing values are left out for this part.
@@ -58,12 +57,12 @@ median(sumdata$total.steps, na.rm = TRUE)
 data%>%
   group_by(interval)%>%
   summarize(average.steps = mean(steps, na.rm = T)) -> intervaldata
-plot(intervaldata$interval,intervaldata$average.steps,type="l",xlab="5-minute interval",ylab="Average number of steps")
+plot(intervaldata$interval, intervaldata$average.steps, type = "l", xlab = "5-minute interval", ylab = "Average number of steps")
 ```
 
 Next we'll determine which 5-minute interval has the highest number of steps on average across all days.
 
-```{r intervaldata}
+```{r}
 intervaldata[which.max(intervaldata$average.steps),]
 ```
 You can see the 835 5-minute interval has the highest average number of steps across all days at 206.
@@ -93,7 +92,7 @@ Next we'll plot a histogram of the total steps taken per day for the same data s
 impute.data%>%
   group_by(date) %>%
   summarize(total.steps = sum(steps)) -> sumdata2
-hist(sumdata2$total.steps,xlab="Total steps per day",main="Histogram of Total Steps Per Day")
+hist(sumdata2$total.steps, xlab = "Total steps per day", main = "Histogram of Total Steps Per Day")
 ```
 
 Again, we'll calculate the mean and median on the data with missing values replaced.
@@ -123,5 +122,5 @@ library(ggplot2)
 impute.data2%>%
   group_by(interval, day)%>%
   summarize("avg.steps" = mean(steps)) -> intervaldata2
-qplot(interval,avg.steps,data=intervaldata2,geom="line",facets=.~day)
+qplot(interval,avg.steps, data=intervaldata2, geom = "line", facets = .~day)
 ```
