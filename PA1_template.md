@@ -61,7 +61,7 @@ library(dplyr)
 data%>%
   group_by(date) %>%
   summarize(total.steps = sum(steps)) -> sumdata
-hist(sumdata$total.steps, xlab = "Total steps per day", main = "Histogram of Total Steps Per Day")
+hist(sumdata$total.steps,xlab="Total steps per day",main="Histogram of Total Steps Per Day")
 ```
 
 ![](PA1_template_files/figure-html/data-1.png)<!-- -->
@@ -92,7 +92,7 @@ median(sumdata$total.steps, na.rm = TRUE)
 data%>%
   group_by(interval)%>%
   summarize(average.steps = mean(steps, na.rm = T)) -> intervaldata
-plot(intervaldata$interval, intervaldata$average.steps, type = "l", xlab = "5-minute interval", ylab = "Average number of steps")
+plot(intervaldata$interval,intervaldata$average.steps,type="l",xlab="5-minute interval",ylab="Average number of steps")
 ```
 
 ![](PA1_template_files/figure-html/unnamed-chunk-2-1.png)<!-- -->
@@ -144,7 +144,7 @@ Next we'll plot a histogram of the total steps taken per day for the same data s
 impute.data%>%
   group_by(date) %>%
   summarize(total.steps = sum(steps)) -> sumdata2
-hist(sumdata2$total.steps, xlab = "Total steps per day", main = "Histogram of Total Steps Per Day")
+hist(sumdata2$total.steps,xlab="Total steps per day",main="Histogram of Total Steps Per Day")
 ```
 
 ![](PA1_template_files/figure-html/unnamed-chunk-5-1.png)<!-- -->
@@ -197,7 +197,7 @@ library(ggplot2)
 impute.data2%>%
   group_by(interval, day)%>%
   summarize("avg.steps" = mean(steps)) -> intervaldata2
-qplot(interval, avg.steps, data = intervaldata2, geom = "line", facets = .~day)
+qplot(interval,avg.steps,data=intervaldata2,geom="line",facets=.~day)
 ```
 
 <img src="PA1_template_files/figure-html/unnamed-chunk-8-1.png" width="100%" />
