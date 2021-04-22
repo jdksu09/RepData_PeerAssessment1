@@ -95,7 +95,7 @@ data%>%
 plot(intervaldata$interval,intervaldata$average.steps,type="l",xlab="5-minute interval",ylab="Average number of steps")
 ```
 
-![](PA1_template_files/figure-html/unnamed-chunk-2-1.png)<!-- -->
+![](PA1_template_files/figure-html/data2-1.png)<!-- -->
 
 Next we'll determine which 5-minute interval has the highest number of steps on average across all days.
 
@@ -147,7 +147,7 @@ impute.data%>%
 hist(sumdata2$total.steps,xlab="Total steps per day",main="Histogram of Total Steps Per Day")
 ```
 
-![](PA1_template_files/figure-html/unnamed-chunk-5-1.png)<!-- -->
+![](PA1_template_files/figure-html/data3-1.png)<!-- -->
 
 Again, we'll calculate the mean and median on the data with missing values replaced.
 
@@ -200,4 +200,4 @@ impute.data2%>%
 qplot(interval,avg.steps,data=intervaldata2,geom="line",facets=.~day)
 ```
 
-<img src="PA1_template_files/figure-html/unnamed-chunk-8-1.png" width="100%" />
+<img src="PA1_template_files/figure-html/data4-1.png" width="100%" />
